@@ -22,10 +22,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class page extends AppCompatActivity {
-    final byte delimiter = 33;
     Button add;
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice;
+    final byte delimiter = 33;
     int readBufferPosition = 0;
 
     @Override
@@ -82,7 +82,7 @@ public class page extends AppCompatActivity {
                     }
                 }
             }
-        })
+        });
 
 
         //controls to populate add buttons
