@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addgpio">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="183dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/sview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.285"
+        app:srcCompat="@drawable/picontxt" />
+
+    <Button
+        android:id="@+id/btnback"
+        android:layout_width="88dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="313dp"
+        android:layout_marginBottom="612dp"
+        android:background="@drawable/roundedbuttonuser"
+        android:backgroundTint="#64BC46"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="34dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/piconlogo" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="7dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/sview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnback" />
+
+    <ScrollView
+        android:id="@+id/sview"
+        android:layout_width="412dp"
+        android:layout_height="609dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnback">
+
+        <LinearLayout
+            android:id="@+id/lview2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <CheckBox
+                android:id="@+id/chk1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk3"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO3"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk4"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO4"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk5"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO5"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk6"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO6"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk7"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO7"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk8"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO8"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk9"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO9"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk10"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO10"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk11"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO11"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk12"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO12"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk13"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO13"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk14"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO14"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk15"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO15"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk16"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO16"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk17"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO17"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk18"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO18"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk19"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO19"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk20"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO20"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk21"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO21"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk22"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO22"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk23"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO23"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk24"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO24"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk25"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO25"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <CheckBox
+                android:id="@+id/chk26"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="GPIO26"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

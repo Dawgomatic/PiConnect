@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.picon.page">
+
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="88dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/roundedbuttonuser"
+        android:backgroundTint="#64BC46"
+        android:text="Add GPIO"
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="398dp"
+        android:layout_height="534dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add"
+        app:layout_constraintVertical_bias="0.333">
+
+        <LinearLayout
+            android:id="@+id/lview2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="6dp"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <ToggleButton
+                android:id="@+id/gpiot1"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO1 OFF"
+                android:textOn="GPIO1 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot2"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO2 OFF"
+                android:textOn="GPIO2 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot3"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO3 OFF"
+                android:textOn="GPIO3 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot4"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO4 OFF"
+                android:textOn="GPIO4 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot5"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO5 OFF"
+                android:textOn="GPIO5 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot6"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO6 OFF"
+                android:textOn="GPIO6 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot7"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO7 OFF"
+                android:textOn="GPIO7 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot8"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO8 OFF"
+                android:textOn="GPIO8 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot9"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO9 OFF"
+                android:textOn="GPIO9 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot10"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO10 OFF"
+                android:textOn="GPIO10 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot11"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO11 OFF"
+                android:textOn="GPIO11 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot12"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO12 OFF"
+                android:textOn="GPIO12 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot13"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO13 OFF"
+                android:textOn="GPIO13 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot14"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO14 OFF"
+                android:textOn="GPIO14 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot15"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO15 OFF"
+                android:textOn="GPIO15 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot16"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO16 OFF"
+                android:textOn="GPIO16 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot17"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO17 OFF"
+                android:textOn="GPIO17 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot18"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO18 OFF"
+                android:textOn="GPIO18 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot19"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO19 OFF"
+                android:textOn="GPIO19 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot20"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO20 OFF"
+                android:textOn="GPIO20 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot21"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO21 OFF"
+                android:textOn="GPIO21 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot22"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO22 OFF"
+                android:textOn="GPIO22 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot23"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO23 OFF"
+                android:textOn="GPIO23 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot24"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO24 OFF"
+                android:textOn="GPIO24 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot25"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO25 OFF"
+                android:textOn="GPIO25 ON"
+                android:visibility="gone" />
+
+            <ToggleButton
+                android:id="@+id/gpiot26"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="GPIO26 OFF"
+                android:textOn="GPIO26 ON"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="183dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/picontxt" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="34dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/piconlogo" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="11dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

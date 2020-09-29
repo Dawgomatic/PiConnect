@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PiConnect</string>
+    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="show_paired_devices">Show paired Devices</string>
+    <string name="discover_new_devices">Discover New Devices</string>
+    <string name="bluetooth_off">Bluetooth OFF</string>
+    <string name="bluetooth_on">Bluetooth ON</string>
+    <string name="bluetooth_status"><![CDATA[<Bluetooth Status>]]></string>
+    <string name="status">Status</string>
+    <string name="read_buffer">Read Buffer</string>
+    <string name="rx">RX:</string>
+</resources>
