@@ -14,8 +14,9 @@
         android:roundIcon="@drawable/piconlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".addgpio"></activity>
+        <activity android:name=".addgpio" />
         <activity android:name=".page" />
+        <activity android:name=".register" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
