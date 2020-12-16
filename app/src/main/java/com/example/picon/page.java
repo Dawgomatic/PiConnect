@@ -17,7 +17,9 @@ import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
 
-public class page extends addgpio {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class page extends AppCompatActivity {
     Button add;
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice;
@@ -27,9 +29,10 @@ public class page extends addgpio {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page);
-        onResume();
         add = findViewById(R.id.add);
-        add.setOnClickListener(new class workerThread implements Runnable {
+
+
+        final class workerThread implements Runnable {
 
             private String btMsg;
 
@@ -77,17 +80,16 @@ public class page extends addgpio {
                     }
                 }
             }
-        });
+        }
 
         final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        View.OnClickListener() {
-            public void onClick (View view){
-                //Intent intent = new Intent(page.this, addgpio.class);
-                startActivity(new Intent(getApplicationContext(), addgpio.class));
-                finish();
+        add.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(page.this, addgpio.class);
+                startActivity(i);
             }
-        }
+        });
 
 
         //controls to populate add buttons
@@ -309,7 +311,7 @@ public class page extends addgpio {
             }
         });
 
-        ToggleButton tbutton4 = (ToggleButton) findViewById(R.id.gpiot4);
+        ToggleButton tbutton4 = findViewById(R.id.gpiot4);
         tbutton4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {

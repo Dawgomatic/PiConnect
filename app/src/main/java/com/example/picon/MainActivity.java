@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mLoginBtn = findViewById(R.id.btnLogin);
         mCreateBtn = findViewById(R.id.signupbtn);
         forgotTextLink = findViewById(R.id.forgot);
+        //progressBar2 = findViewById(R.id.progressBar2);
 
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                //progressBar.setVisibility(View.VISIBLE);
+                //progressBar2.setVisibility(View.VISIBLE);
 
                 // authenticate the user
 
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), page.class));
                         } else {
                             Toast.makeText(MainActivity.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
+                            //progressBar2.setVisibility(View.GONE);
                         }
 
                     }

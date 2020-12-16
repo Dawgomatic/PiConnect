@@ -16,6 +16,15 @@ public class addgpio extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int counter;
+        if (savedInstanceState == null) {
+            //it is the first time the fragment is being called
+            counter = 0;
+        } else {
+            //not the first time so we will check SavedInstanceState bundle
+            counter = savedInstanceState.getInt("value", 0); //here zero is the default value
+        }
+
         setContentView(R.layout.activity_addgpio);
         final SharedPreferences sharedPref = addgpio.this.getPreferences(Context.MODE_PRIVATE);
         final boolean isMyValueChecked1 = sharedPref.getBoolean("chk1", false);
@@ -45,6 +54,7 @@ public class addgpio extends AppCompatActivity {
         final boolean isMyValueChecked25 = sharedPref.getBoolean("chk25", false);
         final boolean isMyValueChecked26 = sharedPref.getBoolean("chk26", false);
         Button btnback = findViewById(R.id.btnback);
+
 
         btnback.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
