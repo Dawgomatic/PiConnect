@@ -12,19 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class addgpio extends AppCompatActivity {
     CheckBox chk1, chk2, chk3, chk4, chk5, chk6, chk7, chk8, chk9, chk10, chk11, chk12, chk13, chk14, chk15, chk16, chk17, chk18, chk19, chk20, chk21, chk22, chk23, chk24, chk25, chk26;
+    Button btnback;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int counter;
-        if (savedInstanceState == null) {
-            //it is the first time the fragment is being called
-            counter = 0;
-        } else {
-            //not the first time so we will check SavedInstanceState bundle
-            counter = savedInstanceState.getInt("value", 0); //here zero is the default value
-        }
-
         setContentView(R.layout.activity_addgpio);
         final SharedPreferences sharedPref = addgpio.this.getPreferences(Context.MODE_PRIVATE);
         final boolean isMyValueChecked1 = sharedPref.getBoolean("chk1", false);
@@ -53,9 +45,7 @@ public class addgpio extends AppCompatActivity {
         final boolean isMyValueChecked24 = sharedPref.getBoolean("chk24", false);
         final boolean isMyValueChecked25 = sharedPref.getBoolean("chk25", false);
         final boolean isMyValueChecked26 = sharedPref.getBoolean("chk26", false);
-        Button btnback = findViewById(R.id.btnback);
-
-
+        final Button btnback = findViewById(R.id.btnback);
         btnback.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(addgpio.this, page.class);
@@ -96,6 +86,11 @@ public class addgpio extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("chk1", ((CheckBox) view).isChecked());
                 editor.apply();
+                if (chk1.isChecked()) {
+                    editor.apply();
+                    chk1.setChecked(true);
+                    //Toast.makeText(getApplicationContext(), "gpio1 checked", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

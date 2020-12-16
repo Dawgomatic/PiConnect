@@ -14,25 +14,26 @@ import android.widget.ToggleButton;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Set;
 import java.util.UUID;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class page extends AppCompatActivity {
+    final byte delimiter = 33;
     Button add;
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice;
-    final byte delimiter = 33;
     int readBufferPosition = 0;
 
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page);
         add = findViewById(R.id.add);
-
-
-        final class workerThread implements Runnable {
+        add.setOnClickListener(new class workerThread implements Runnable {
 
             private String btMsg;
 
@@ -44,244 +45,242 @@ public class page extends AppCompatActivity {
                 sendBtMsg(btMsg);
                 {
                     int bytesAvailable;
-                    //boolean workDone = true;
+                    boolean workDone = true;
 
                     try {
                         final InputStream mmInputStream;
                         mmInputStream = mmSocket.getInputStream();
                         bytesAvailable = mmInputStream.available();
-                        if (bytesAvailable > 0) {
+                        if (bytesAvailable > -1) {
 
                             byte[] packetBytes = new byte[bytesAvailable];
                             Log.e("Picon recv bt", "bytes available");
                             byte[] readBuffer = new byte[1024];
                             mmInputStream.read(packetBytes);
 
-                            int i = 0;
-                            while (i < bytesAvailable) {
+                            for (int i = 0; i < bytesAvailable; i++) {
                                 byte b = packetBytes[i];
                                 if (b == delimiter) {
                                     byte[] encodedBytes = new byte[readBufferPosition];
                                     System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
-                                    //final String data = new String(encodedBytes, "US-ASCII");
+                                    final String data = new String(encodedBytes, StandardCharsets.US_ASCII);
                                     readBufferPosition = 0;
 
                                     //The variable data now contains our full command
+                                    workDone = true;
                                     break;
                                 } else {
                                     readBuffer[readBufferPosition++] = b;
                                 }
-                                i++;
                             }
-                            mmSocket.close();
+                            if (workDone == true) {
+                                mmSocket.close();
+                            }
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
-        }
-
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(page.this, addgpio.class));
-            }
-        });
-
-
-        final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        })
 
 
         //controls to populate add buttons
-        boolean gpiotb1 = getIntent().getBooleanExtra("chk1", false);
-        ToggleButton gpiot1 = (ToggleButton) findViewById(R.id.gpiot1);
+        Boolean gpiotb1 = getIntent().getBooleanExtra("chk1", false);
+        Button gpiot1 = findViewById(R.id.gpiot1);
         if (gpiotb1) {
             //For Displaying Button
             gpiot1.setVisibility(View.VISIBLE);
-
         }
 
-        boolean gpiotb2 = getIntent().getBooleanExtra("chk2", false);
-        ToggleButton gpiot2 = (ToggleButton) findViewById(R.id.gpiot2);
+        Boolean gpiotb2 = getIntent().getBooleanExtra("chk2", false);
+        Button gpiot2 = findViewById(R.id.gpiot2);
         if (gpiotb2) {
             //For Displaying Button
             gpiot2.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb3 = getIntent().getBooleanExtra("chk3", false);
-        ToggleButton gpiot3 = (ToggleButton) findViewById(R.id.gpiot3);
+        Boolean gpiotb3 = getIntent().getBooleanExtra("chk3", false);
+        Button gpiot3 = findViewById(R.id.gpiot3);
         if (gpiotb3) {
             //For Displaying Button
             gpiot3.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb4 = getIntent().getBooleanExtra("chk4", false);
-        Button gpiot4 = (Button) findViewById(R.id.gpiot4);
+        Boolean gpiotb4 = getIntent().getBooleanExtra("chk4", false);
+        Button gpiot4 = findViewById(R.id.gpiot4);
         if (gpiotb4) {
             //For Displaying Button
             gpiot4.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb5 = getIntent().getBooleanExtra("chk5", false);
-        Button gpiot5 = (Button) findViewById(R.id.gpiot5);
+        Boolean gpiotb5 = getIntent().getBooleanExtra("chk5", false);
+        Button gpiot5 = findViewById(R.id.gpiot5);
         if (gpiotb5) {
             //For Displaying Button
             gpiot5.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb6 = getIntent().getBooleanExtra("chk6", false);
-        Button gpiot6 = (Button) findViewById(R.id.gpiot6);
+        Boolean gpiotb6 = getIntent().getBooleanExtra("chk6", false);
+        Button gpiot6 = findViewById(R.id.gpiot6);
         if (gpiotb6) {
             //For Displaying Button
             gpiot6.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb7 = getIntent().getBooleanExtra("chk7", false);
-        Button gpiot7 = (Button) findViewById(R.id.gpiot7);
+        Boolean gpiotb7 = getIntent().getBooleanExtra("chk7", false);
+        Button gpiot7 = findViewById(R.id.gpiot7);
         if (gpiotb7) {
             //For Displaying Button
             gpiot7.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb8 = getIntent().getBooleanExtra("chk8", false);
-        Button gpiot8 = (Button) findViewById(R.id.gpiot8);
+        Boolean gpiotb8 = getIntent().getBooleanExtra("chk8", false);
+        Button gpiot8 = findViewById(R.id.gpiot8);
         if (gpiotb8) {
             //For Displaying Button
             gpiot8.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb9 = getIntent().getBooleanExtra("chk9", false);
-        Button gpiot9 = (Button) findViewById(R.id.gpiot9);
+        Boolean gpiotb9 = getIntent().getBooleanExtra("chk9", false);
+        Button gpiot9 = findViewById(R.id.gpiot9);
         if (gpiotb9) {
             //For Displaying Button
             gpiot9.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb10 = getIntent().getBooleanExtra("chk10", false);
-        Button gpiot10 = (Button) findViewById(R.id.gpiot10);
+        Boolean gpiotb10 = getIntent().getBooleanExtra("chk10", false);
+        Button gpiot10 = findViewById(R.id.gpiot10);
         if (gpiotb10) {
             //For Displaying Button
             gpiot10.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb11 = getIntent().getBooleanExtra("chk11", false);
-        Button gpiot11 = (Button) findViewById(R.id.gpiot11);
+        Boolean gpiotb11 = getIntent().getBooleanExtra("chk11", false);
+        Button gpiot11 = findViewById(R.id.gpiot11);
         if (gpiotb11) {
             //For Displaying Button
             gpiot11.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb12 = getIntent().getBooleanExtra("chk12", false);
-        Button gpiot12 = (Button) findViewById(R.id.gpiot12);
+        Boolean gpiotb12 = getIntent().getBooleanExtra("chk12", false);
+        Button gpiot12 = findViewById(R.id.gpiot12);
         if (gpiotb12) {
             //For Displaying Button
             gpiot12.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb13 = getIntent().getBooleanExtra("chk13", false);
-        Button gpiot13 = (Button) findViewById(R.id.gpiot13);
+        Boolean gpiotb13 = getIntent().getBooleanExtra("chk13", false);
+        Button gpiot13 = findViewById(R.id.gpiot13);
         if (gpiotb13) {
             //For Displaying Button
             gpiot13.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb14 = getIntent().getBooleanExtra("chk14", false);
-        Button gpiot14 = (Button) findViewById(R.id.gpiot14);
+        Boolean gpiotb14 = getIntent().getBooleanExtra("chk14", false);
+        Button gpiot14 = findViewById(R.id.gpiot14);
         if (gpiotb14) {
             //For Displaying Button
-            gpiot14.setVisibility(View.VISIBLE);
+            gpiot12.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb15 = getIntent().getBooleanExtra("chk15", false);
-        Button gpiot15 = (Button) findViewById(R.id.gpiot15);
+        Boolean gpiotb15 = getIntent().getBooleanExtra("chk15", false);
+        Button gpiot15 = findViewById(R.id.gpiot15);
         if (gpiotb15) {
             //For Displaying Button
             gpiot15.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb16 = getIntent().getBooleanExtra("chk16", false);
-        Button gpiot16 = (Button) findViewById(R.id.gpiot16);
+        Boolean gpiotb16 = getIntent().getBooleanExtra("chk16", false);
+        Button gpiot16 = findViewById(R.id.gpiot16);
         if (gpiotb16) {
             //For Displaying Button
             gpiot16.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb17 = getIntent().getBooleanExtra("chk17", false);
-        Button gpiot17 = (Button) findViewById(R.id.gpiot17);
+        Boolean gpiotb17 = getIntent().getBooleanExtra("chk17", false);
+        Button gpiot17 = findViewById(R.id.gpiot17);
         if (gpiotb17) {
             //For Displaying Button
             gpiot17.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb18 = getIntent().getBooleanExtra("chk18", false);
-        Button gpiot18 = (Button) findViewById(R.id.gpiot18);
+        Boolean gpiotb18 = getIntent().getBooleanExtra("chk18", false);
+        Button gpiot18 = findViewById(R.id.gpiot18);
         if (gpiotb18) {
             //For Displaying Button
             gpiot18.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb19 = getIntent().getBooleanExtra("chk19", false);
-        Button gpiot19 = (Button) findViewById(R.id.gpiot19);
+        Boolean gpiotb19 = getIntent().getBooleanExtra("chk19", false);
+        Button gpiot19 = findViewById(R.id.gpiot19);
         if (gpiotb19) {
             //For Displaying Button
             gpiot19.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb20 = getIntent().getBooleanExtra("chk20", false);
-        Button gpiot20 = (Button) findViewById(R.id.gpiot20);
+        Boolean gpiotb20 = getIntent().getBooleanExtra("chk20", false);
+        Button gpiot20 = findViewById(R.id.gpiot20);
         if (gpiotb20) {
             //For Displaying Button
             gpiot20.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb21 = getIntent().getBooleanExtra("chk21", false);
-        Button gpiot21 = (Button) findViewById(R.id.gpiot21);
+        Boolean gpiotb21 = getIntent().getBooleanExtra("chk21", false);
+        Button gpiot21 = findViewById(R.id.gpiot21);
         if (gpiotb21) {
             //For Displaying Button
             gpiot21.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb22 = getIntent().getBooleanExtra("chk22", false);
-        Button gpiot22 = (Button) findViewById(R.id.gpiot22);
+        Boolean gpiotb22 = getIntent().getBooleanExtra("chk22", false);
+        Button gpiot22 = findViewById(R.id.gpiot22);
         if (gpiotb22) {
             //For Displaying Button
             gpiot22.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb23 = getIntent().getBooleanExtra("chk23", false);
-        Button gpiot23 = (Button) findViewById(R.id.gpiot23);
+        Boolean gpiotb23 = getIntent().getBooleanExtra("chk23", false);
+        Button gpiot23 = findViewById(R.id.gpiot23);
         if (gpiotb23) {
             //For Displaying Button
             gpiot23.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb24 = getIntent().getBooleanExtra("chk24", false);
-        Button gpiot24 = (Button) findViewById(R.id.gpiot24);
+        Boolean gpiotb24 = getIntent().getBooleanExtra("chk24", false);
+        Button gpiot24 = findViewById(R.id.gpiot24);
         if (gpiotb24) {
             //For Displaying Button
             gpiot24.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb25 = getIntent().getBooleanExtra("chk25", false);
-        Button gpiot25 = (Button) findViewById(R.id.gpiot25);
+        Boolean gpiotb25 = getIntent().getBooleanExtra("chk25", false);
+        Button gpiot25 = findViewById(R.id.gpiot25);
         if (gpiotb25) {
             //For Displaying Button
             gpiot25.setVisibility(View.VISIBLE);
         }
 
-        boolean gpiotb26 = getIntent().getBooleanExtra("chk26", false);
-        Button gpiot26 = (Button) findViewById(R.id.gpiot26);
+        Boolean gpiotb26 = getIntent().getBooleanExtra("chk26", false);
+        Button gpiot26 = findViewById(R.id.gpiot26);
         if (gpiotb26) {
             //For Displaying Button
             gpiot26.setVisibility(View.VISIBLE);
         }
 
 
-        ToggleButton tbutton1 = (ToggleButton) findViewById(R.id.gpiot1);
+        final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        View.OnClickListener() {
+            public void onClick (View view){
+                Intent intent = new Intent(page.this, addgpio.class);
+                startActivity(intent);
+            }
+        }
+
+        ToggleButton tbutton1 = findViewById(R.id.gpiot1);
         tbutton1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
                 if (isChecked) {
                     new Thread(new workerThread("gpio1on")).start();
                 } else {
@@ -290,7 +289,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton2 = this.findViewById(R.id.gpiot2);
+        ToggleButton tbutton2 = findViewById(R.id.gpiot2);
         tbutton2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -301,7 +300,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton3 = (ToggleButton) findViewById(R.id.gpiot3);
+        ToggleButton tbutton3 = findViewById(R.id.gpiot3);
         tbutton3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -323,7 +322,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton5 = (ToggleButton) findViewById(R.id.gpiot5);
+        ToggleButton tbutton5 = findViewById(R.id.gpiot5);
         tbutton5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -334,7 +333,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton6 = (ToggleButton) findViewById(R.id.gpiot6);
+        ToggleButton tbutton6 = findViewById(R.id.gpiot6);
         tbutton6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -345,7 +344,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton7 = (ToggleButton) findViewById(R.id.gpiot7);
+        ToggleButton tbutton7 = findViewById(R.id.gpiot7);
         tbutton7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -356,7 +355,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton8 = (ToggleButton) findViewById(R.id.gpiot8);
+        ToggleButton tbutton8 = findViewById(R.id.gpiot8);
         tbutton8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -367,7 +366,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton9 = (ToggleButton) findViewById(R.id.gpiot9);
+        ToggleButton tbutton9 = findViewById(R.id.gpiot9);
         tbutton9.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -378,7 +377,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton10 = (ToggleButton) findViewById(R.id.gpiot10);
+        ToggleButton tbutton10 = findViewById(R.id.gpiot10);
         tbutton10.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -389,7 +388,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton11 = (ToggleButton) findViewById(R.id.gpiot11);
+        ToggleButton tbutton11 = findViewById(R.id.gpiot11);
         tbutton11.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -400,7 +399,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton12 = (ToggleButton) findViewById(R.id.gpiot12);
+        ToggleButton tbutton12 = findViewById(R.id.gpiot12);
         tbutton12.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -411,7 +410,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton13 = (ToggleButton) findViewById(R.id.gpiot13);
+        ToggleButton tbutton13 = findViewById(R.id.gpiot13);
         tbutton13.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -422,7 +421,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton14 = (ToggleButton) findViewById(R.id.gpiot14);
+        ToggleButton tbutton14 = findViewById(R.id.gpiot14);
         tbutton14.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -433,7 +432,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton15 = (ToggleButton) findViewById(R.id.gpiot15);
+        ToggleButton tbutton15 = findViewById(R.id.gpiot15);
         tbutton15.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -444,7 +443,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton16 = (ToggleButton) findViewById(R.id.gpiot16);
+        ToggleButton tbutton16 = findViewById(R.id.gpiot16);
         tbutton16.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -455,7 +454,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton17 = (ToggleButton) findViewById(R.id.gpiot17);
+        ToggleButton tbutton17 = findViewById(R.id.gpiot17);
         tbutton17.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -466,7 +465,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton18 = (ToggleButton) findViewById(R.id.gpiot18);
+        ToggleButton tbutton18 = findViewById(R.id.gpiot18);
         tbutton18.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -477,7 +476,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton19 = (ToggleButton) findViewById(R.id.gpiot19);
+        ToggleButton tbutton19 = findViewById(R.id.gpiot19);
         tbutton19.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -488,7 +487,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton20 = (ToggleButton) findViewById(R.id.gpiot20);
+        ToggleButton tbutton20 = findViewById(R.id.gpiot20);
         tbutton20.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -499,7 +498,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton21 = (ToggleButton) findViewById(R.id.gpiot21);
+        ToggleButton tbutton21 = findViewById(R.id.gpiot21);
         tbutton21.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -510,7 +509,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton22 = (ToggleButton) findViewById(R.id.gpiot22);
+        ToggleButton tbutton22 = findViewById(R.id.gpiot22);
         tbutton22.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -521,7 +520,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton23 = (ToggleButton) findViewById(R.id.gpiot23);
+        ToggleButton tbutton23 = findViewById(R.id.gpiot23);
         tbutton23.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -532,7 +531,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton24 = (ToggleButton) findViewById(R.id.gpiot24);
+        ToggleButton tbutton24 = findViewById(R.id.gpiot24);
         tbutton24.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -543,7 +542,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton25 = (ToggleButton) findViewById(R.id.gpiot25);
+        ToggleButton tbutton25 = findViewById(R.id.gpiot25);
         tbutton25.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -554,7 +553,7 @@ public class page extends AppCompatActivity {
             }
         });
 
-        ToggleButton tbutton26 = (ToggleButton) findViewById(R.id.gpiot26);
+        ToggleButton tbutton26 = findViewById(R.id.gpiot26);
         tbutton26.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -564,7 +563,6 @@ public class page extends AppCompatActivity {
                 }
             }
         });
-
 
 
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
