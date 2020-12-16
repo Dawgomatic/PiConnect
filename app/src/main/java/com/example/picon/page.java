@@ -82,14 +82,15 @@ public class page extends AppCompatActivity {
             }
         }
 
-        final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
         add.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                Intent i = new Intent(page.this, addgpio.class);
-                startActivity(i);
+                startActivity(new Intent(page.this, addgpio.class));
             }
         });
+
+
+        final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
 
         //controls to populate add buttons

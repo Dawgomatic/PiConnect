@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/btnadd"
+        android:id="@+id/add"
         android:layout_width="88dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
