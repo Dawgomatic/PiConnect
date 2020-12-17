@@ -8,11 +8,13 @@
     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/badge/Version-0.0.1-blue" /></a>
     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/badge/Last Update-12/20/20-blue" /></a>
+    <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/badge/Android App-Experimental Stable-green" /></a>
     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/badge/Rpi3 B+ image-Stable-green" /></a>
+        <img src="https://img.shields.io/badge/Rpi3 B+ image-Working-green" /></a>
     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/badge/Rpi Zero image-Stable-green" /></a>
+        <img src="https://img.shields.io/badge/Rpi Zero image-Working-green" /></a>
     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/badge/Rpi3 A+ image-Non working-red" /></a>
     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
