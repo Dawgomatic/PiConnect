@@ -1,6 +1,6 @@
 # PiConnect
 <div align="center">
-    <img src="/PiConnect/app/src/main/res/drawable/piconlogo.png" width="600">
+    <img src="/.github/piconlogo.png" width="600">
 </div>
      
 </p>
