@@ -11,10 +11,6 @@
         <img src="https://img.shields.io/badge/Android-Experimental-green" /></a>
 </p>
 	
-# Setup
-  
-  For setup guides please visit https://neurales.ai/source-available/
- 
 # License
 
   
